@@ -1,9 +1,48 @@
 from fasthtml.common import *
+
+def FooterLinks():
+    return Footer(
+            P("Made with ❤️ by Jefferson"),
+            Div(
+                A(
+                    Img(
+                        src="https://img.icons8.com/?size=100&id=108812&format=png&color=ffffff",
+                        alt="LinkedIn",
+                    ),
+                    href="https://www.linkedin.com/in/jeffersonaaron/",
+                    target="_blank"
+                ),
+                A(
+                    Img(
+                        src="https://img.icons8.com/?size=100&id=118553&format=png&color=ffffff",
+                        alt="GitHub",
+                    ),
+                    href="https://github.com/jeffersonaaron25",
+                    target="_blank"
+                ),
+                A(
+                    Img(
+                        src="https://img.icons8.com/?size=100&id=108813&format=png&color=ffffff",
+                        alt="Email",
+                    ),
+                    href="mailto:jefferson.nelsson@nyu.edu",
+                ),
+                A(
+                    Img(
+                        src="https://img.icons8.com/?size=100&id=sXhQ3VwDMMBx&format=png&color=000000",
+                        alt="Phone",
+                    ),
+                    href="tel:+13479575717",
+                ),
+                cls="footer"
+            )
+        )
+
 # Terminal message component
-def TerminalMessage(text, id, prefix=False):
+def TerminalMessage(text, prefix=False):
     return Div(
             Span("user@browser %", cls="output", style="font-weight: bold; color: #ffbd2e;") if prefix else Span(">", style="color: #27c93f; font-weight: bold;", cls="output"),
-            Span(text, cls="output", id=id),
+            Span(text, cls="output"),
             cls="terminal-line", hx_swap_oob='innerHTML'
         )
 
@@ -13,12 +52,10 @@ def TerminalInput(id="input-container", hidden=False):
         Span("user@browser %", cls="output", style="font-weight: bold; color: #ffbd2e;"),
         
         Input(
-            # Span("_", cls="blinking-cursor"),
             type="text", name='input', id='input', 
-            placeholder="", 
+            placeholder="Type here...", 
             cls="terminal-input", hx_swap_oob='true',
             autofocus=True,
-            # style="caret-color: transparent;"
         ),
         id = id,
         style="display: none;" if hidden else "",

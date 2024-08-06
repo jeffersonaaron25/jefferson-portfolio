@@ -2,12 +2,10 @@ import json
 import time
 from typing import List
 from langchain_openai import ChatOpenAI
-import os
 from langchain.tools import tool
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.memory import ChatMessageHistory
-from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.documents import Document
 from langchain_chroma import Chroma
@@ -16,14 +14,14 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import PromptTemplate
-from data import my_data
+from data import my_data  # dictionary
+
 
 class DictLoader:
     def __init__(self, data):
         self.data = data
 
     def load(self) -> List[Document]:
-        # Process the data using the dictionary
         documents = []
         for seq_num, item in enumerate(self.data['content'], start=1):
             page_content = json.dumps(item)
@@ -145,8 +143,13 @@ conversational_agent_executor = RunnableWithMessageHistory(
 
 async def get_llm_response(question):
     if conversational_agent_executor is not None:
-        res = await conversational_agent_executor.ainvoke({
-                    "input": question
-                },{"configurable": {"session_id": "main"}},)
+        res = await conversational_agent_executor.ainvoke(
+            {
+                "input": question
+            },
+            {
+                "configurable": {"session_id": "unused"}
+            },
+        )
                 
         return "JeffAI: " + res['output']

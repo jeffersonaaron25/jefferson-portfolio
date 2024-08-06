@@ -43,11 +43,25 @@ body {
 .terminal-body {
     padding: 20px;
     height: 420px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #3c3c3c #2d2d2d;
 }
+                     
+.terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
 
+.terminal-body::-webkit-scrollbar-track {
+    background: #2d2d2d; /* Track color */
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background-color: #3c3c3c; /* Thumb color */
+    border-radius: 10px; /* Optional: round the corners */
+    border: 2px solid #2d2d2d; /* Optional: add a border */
+}
 .output {
     margin-bottom: 10px;
     font-size: 14px;
@@ -104,9 +118,89 @@ body {
     margin-bottom: 10px;
 }
 
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #d4d4d4;
+    font-size: 14px;
+}
+.footer img {
+    width: 40px;
+    height: 40px;
+    margin: 0 0px;
+    vertical-align: middle;
+}
+.footer a {
+    color: #d4d4d4;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+::placeholder {
+    color: transparent;
+}              
+                     
 @media (max-width: 480px) {
+    .terminal {
+        width: 90%;
+    }
     .terminal-input {
-        width: 36vw;
+        width: 48vw;
+        font-size: 12px;
+    }
+    .output {
+        font-size: 12px;
+    }
+    .terminal-input-container {
+        font-size: 12px;
+    }
+    .title {
+        font-size: 12px;
+    }
+    .terminal-line {
+        font-size: 12px;
+    }
+    .footer {
+        font-size: 12px;
+    }
+    body {
+        overflow: hidden;
+        height: 90vh;
+    }
+    ::placeholder {
+        color: #d4d4d4;
+    }
+}
+
+@media (max-width: 400px) {
+    .terminal {
+        width: 90%;
+    }
+    .terminal-input {
+        width: 44vw;
+        font-size: 10px;
+    }
+    .output {
+        font-size: 10px;
+    }
+    .terminal-input-container {
+        font-size: 10px;
+    }
+    .title {
+        font-size: 10px;
+    }
+    .terminal-line {
+        font-size: 10px;
+    }
+    .footer {
+        font-size: 10px;
+    }
+    body {
+        overflow: hidden;
+        height: 90vh;
+    }        
+    ::placeholder {
+        color: #d4d4d4;
     }
 }
 ''')

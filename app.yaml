@@ -1,0 +1,16 @@
+runtime: python
+env: flex
+runtime_config:
+    operating_system: "ubuntu22"
+    runtime_version: "3.11"
+entrypoint: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app -b :$PORT
+
+network:
+  session_affinity: true
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 1
+
+env_variables:
+  OPENAI_API_KEY: 'YOUR_KEY'
