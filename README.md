@@ -10,3 +10,6 @@ After a (slightly) tough time trying to figure out a way to deploy this in Googl
 Check out my portfolio live [here](https://jefferson-nelsson.com)!
 
 
+## Screenshot
+
+<img width="1437" alt="Screenshot 2024-08-07 at 5 22 21 PM" src="https://github.com/user-attachments/assets/5c70de7e-fde2-4a34-9cae-c9e959199103">
