@@ -7,6 +7,6 @@ I started doing this purely to learn FastHTML, and ended up liking what I did (A
 After a (slightly) tough time trying to figure out a way to deploy this in Google App Engine, I thought it might be useful for someone to use my portfolio as an example to achieve the same. So here it goes, I've included my app.yaml!
 
 
-Check out my portfolio live [here](jefferson-nelsson.com)!
+Check out my portfolio live [here](https://jefferson-nelsson.com)!
 
 
